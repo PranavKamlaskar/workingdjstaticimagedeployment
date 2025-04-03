@@ -2,6 +2,45 @@ follow https://www.digitalocean.com/community/tutorials/how-to-set-up-django-wit
 https://chatgpt.com/share/67ee54d8-90f4-8005-89a8-1f66bd524ea1
 https://chatgpt.com/share/67ee552c-4638-8005-9191-c593099f0438
 
+Most important files are gunicorn.service ,nginx config file ,follow them carefully , 
+for example in nginx config file 
+    location /static/ {
+        root /home/ubuntu/django-course/lesson07/myproject;
+    }
+while writing this file make sure python manage.py collectstatic is already run 
+
+
+in settings.py check
+ALLOWED_HOSTS = ['*']
+
+INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'posts'
+]
+
+MIDDLEWARE = [
+    "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
+    MEDIA_URL = 'media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'statics/')
+
+
+
+in myproject/urls.py check 
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 sudo apt update
 sudo apt install python3-venv python3-dev libpq-dev nginx curl -y
