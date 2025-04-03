@@ -1,4 +1,6 @@
 follow https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu#step-3-creating-a-python-virtual-environment-for-your-project link 
+https://chatgpt.com/share/67ee54d8-90f4-8005-89a8-1f66bd524ea1
+https://chatgpt.com/share/67ee552c-4638-8005-9191-c593099f0438
 
 
 sudo apt update
